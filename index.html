@@ -174,10 +174,21 @@
     #about { border-top: 1px solid var(--border); }
     .about-grid {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 6rem;
+      grid-template-columns: 220px 1fr 1fr;
+      gap: 4rem;
       align-items: start;
     }
+    .about-photo {
+      width: 100%;
+      aspect-ratio: 3/4;
+      object-fit: cover;
+      object-position: top center;
+      display: block;
+      border: 1px solid var(--border);
+      filter: grayscale(15%);
+      transition: filter 0.3s;
+    }
+    .about-photo:hover { filter: grayscale(0%); }
     .about-bio {
       font-size: 1.05rem;
       line-height: 1.8;
@@ -363,8 +374,8 @@
     }
 
     .reveal {
-      opacity: 0;
-      transform: translateY(20px);
+      opacity: 1;
+      transform: translateY(0);
       transition: opacity 0.6s ease, transform 0.6s ease;
     }
     .reveal.visible { opacity: 1; transform: translateY(0); }
@@ -375,7 +386,7 @@
       .nav-links { gap: 1.5rem; }
       section { padding: 4rem 1.5rem; }
       #hero { padding: 0 1.5rem 4rem; }
-      .about-grid, .contact-grid { grid-template-columns: 1fr; gap: 3rem; }
+      .about-grid, .contact-grid { grid-template-columns: 1fr; gap: 2rem; }
       footer { flex-direction: column; gap: 0.5rem; text-align: center; }
     }
   </style>
@@ -411,6 +422,7 @@
     <div class="section-label">About Me</div>
     <div class="section-title reveal">A builder curious<br>about everything tech.</div>
     <div class="about-grid">
+      <img class="about-photo reveal" src="IMG_2481.JPG" alt="Anish Sannareddy" />
       <div class="about-bio reveal">
         <p>I'm an Industrial Engineering student at Georgia Tech, concentrating in Data Science with a minor in Computer Science. I'm drawn to the intersection of systems thinking and technology — finding elegant solutions to complex problems.</p>
         <p>This summer, I'm interning at IBM as an AI Strategy Consultant, exploring how AI can reshape the way organizations operate. I'm open to a wide range of roles across software engineering, data science, and AI.</p>
@@ -524,8 +536,8 @@
           <a href="https://linkedin.com/in/" target="_blank" class="social-link">
             <span>LinkedIn</span> Add your LinkedIn URL
           </a>
-          <a href="mailto:anish.sannareddy@gmail.com" class="social-link">
-            <span>Email</span> anish.sannareddy@gmail.com
+          <a href="/cdn-cgi/l/email-protection#c6a7a8afb5aee8b5a7a8a8a7b4a3a2a2bf86a1aba7afaae8a5a9ab" class="social-link">
+            <span>Email</span> <span class="__cf_email__" data-cfemail="d0b1beb9a3b8fea3b1bebeb1a2b5b4b4a990b7bdb1b9bcfeb3bfbd">[email&#160;protected]</span>
           </a>
         </div>
       </div>
@@ -554,7 +566,7 @@
     <span>Built with HTML, CSS & JS · Hosted on GitHub Pages</span>
   </footer>
 
-  <script>
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
     // Scroll reveal
     const reveals = document.querySelectorAll('.reveal');
     const observer = new IntersectionObserver((entries) => {
@@ -574,12 +586,4 @@
       const message = document.getElementById('message').value;
       const subject = encodeURIComponent(`Portfolio Contact from ${name}`);
       const body = encodeURIComponent(`From: ${name}\nEmail: ${email}\n\n${message}`);
-      window.location.href = `mailto:anish.sannareddy@gmail.com?subject=${subject}&body=${body}`;
-      const msg = document.getElementById('form-msg');
-      msg.textContent = 'Opening your email client...';
-      msg.style.display = 'block';
-    }
-  </script>
-
-</body>
-</html>
+      window.location.
